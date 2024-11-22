@@ -130,6 +130,10 @@
         ];
         # and easily check if they are included in lua
         format = with pkgs; [
+          stylua
+          isort
+          black
+          prettierd
         ];
         neonixdev = {
           # also you can do this.
