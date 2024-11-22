@@ -358,13 +358,17 @@
           # or, whatever you named the package definition in the packageDefinitions set.
           # WARNING: MAKE SURE THESE DONT CONFLICT WITH OTHER INSTALLED PACKAGES ON YOUR PATH
           # That would result in a failed build, as nixos and home manager modules validate for collisions on your path
-          aliases = [ "vi" "vim" "vimcat" ];
+          # aliases = [ "vi" "vim" "vimcat" ];
 
           # explained below in the `regularCats` package's definition
           # OR see :help nixCats.flake.outputs.settings for all of the settings available
           wrapRc = true;
           configDirName = "nixCats-nvim";
           # neovim-unwrapped = inputs.neovim-nightly-overlay.packages.${pkgs.system}.neovim;
+
+          viAlias = true;
+          vimAlias = true;
+          vimdiffAlias = true;
         };
         # enable the categories you want from categoryDefinitions
         categories = {
