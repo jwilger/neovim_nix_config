@@ -393,8 +393,8 @@
           # but you can pass all the same stuff in any of these sets and access it in lua
           nixdExtras = {
             nixpkgs = nixpkgs;
+            lua = pkgs.lua;
           };
-          lua = pkgs.lua;
         };
       };
     };
