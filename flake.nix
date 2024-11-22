@@ -263,9 +263,6 @@
             # pkgs.neovimPlugins.hlargs
           ];
         };
-        elixir = with pkgs.vimPlugins; [
-          elixir-tools-nvim
-        ];
       };
 
       # shared libraries to be added to LD_LIBRARY_PATH
@@ -381,7 +378,6 @@
           format = true;
           neonixdev = true;
           debug = true;
-          elixir = true;
 
           # enabling this category will enable the go category,
           # and ALSO debug.go and debug.default due to our extraCats in categoryDefinitions.
