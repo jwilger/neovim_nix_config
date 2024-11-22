@@ -116,6 +116,8 @@
         ];
         # these names are arbitrary.
         lint = with pkgs; [
+          vale
+          eslint
         ];
         # but you can choose which ones you want
         # per nvim package you export
