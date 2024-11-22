@@ -165,6 +165,7 @@
               "onedark" = onedark-nvim;
               "catppuccin" = catppuccin-nvim;
               "catppuccin-mocha" = catppuccin-nvim;
+              "catppuccin-macchiato" = catppuccin-nvim;
               "tokyonight" = tokyonight-nvim;
               "tokyonight-day" = tokyonight-nvim;
             }
@@ -380,7 +381,7 @@
           # you could also pass something else:
           # see :help nixCats
           themer = true;
-          colorscheme = "onedark";
+          colorscheme = "catppuccin-macchiato";
         };
         extra = {
           # to keep the categories table from being filled with non category things that you want to pass
@@ -421,7 +422,7 @@
           # go = true; # <- disabled but you could enable it with override or module on install
           lspDebugMode = false;
           themer = true;
-          colorscheme = "catppuccin";
+          colorscheme = "catppuccin-macchiato";
         };
         extra = {
           # nixCats.extra("path.to.val") will perform vim.tbl_get(nixCats.extra, "path" "to" "val")
