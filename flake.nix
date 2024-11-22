@@ -394,6 +394,7 @@
           nixdExtras = {
             nixpkgs = nixpkgs;
           };
+          lua = pkgs.lua;
         };
       };
     };
