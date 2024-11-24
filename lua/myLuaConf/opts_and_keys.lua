@@ -114,6 +114,11 @@ vim.keymap.set("n", "<leader><leader>j", "<cmd>bnext<CR>", { desc = 'Next buffer
 vim.keymap.set("n", "<leader><leader>l", "<cmd>b#<CR>", { desc = 'Last buffer' })
 vim.keymap.set("n", "<leader><leader>d", "<cmd>bdelete<CR>", { desc = 'delete buffer' })
 
+vim.keymap.set("n", "<c-h>", "<c-w>h", { noremap = true, silent = true })
+vim.keymap.set("n", "<c-j>", "<c-w>j", { noremap = true, silent = true })
+vim.keymap.set("n", "<c-k>", "<c-w>k", { noremap = true, silent = true })
+vim.keymap.set("n", "<c-l>", "<c-w>l", { noremap = true, silent = true })
+
 -- see help sticky keys on windows
 vim.cmd([[command! W w]])
 vim.cmd([[command! Wq wq]])
