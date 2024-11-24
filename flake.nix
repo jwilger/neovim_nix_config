@@ -265,7 +265,7 @@
           ];
         };
         elixir = with pkgs; [
-          elixir-ls
+          next-ls
         ];
       };
 
