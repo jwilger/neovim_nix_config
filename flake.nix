@@ -156,6 +156,7 @@
             lze
             vim-repeat
             plenary-nvim
+            better-escape-nvim
           ];
           extra = [
             oil-nvim
@@ -324,6 +325,10 @@
       # The categories argument of this function is the FINAL value.
       # You may use it in any of the other sets.
       extraCats = {
+        general = [
+            [ "general" "always" ]
+            [ "general" "extra" ]
+        ];
         test = [
           [ "test" "default" ]
         ];
