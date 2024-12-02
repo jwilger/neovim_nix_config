@@ -66,16 +66,8 @@ if nixCats('go') then
 end
 
 if nixCats('elixir') then
-    servers.nextls = {
-        cmd = { "nextls", "--stdio" },
-        init_options = {
-            extensions = {
-                credo = { enable = true }
-            },
-            experimental = {
-                completions = { enable = true }
-            }
-        }
+    servers.elixirls = {
+        cmd = { "elixir-ls" }
     }
 end
 
