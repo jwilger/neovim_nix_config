@@ -118,6 +118,7 @@
         lint = with pkgs; [
           vale
           eslint
+          clippy
         ];
         # but you can choose which ones you want
         # per nvim package you export
@@ -136,6 +137,7 @@
           isort
           black
           prettierd
+          rustfmt
         ];
         neonixdev = {
           # also you can do this.
