@@ -161,7 +161,7 @@
             better-escape-nvim
           ];
           extra = [
-            oil-nvim
+            nvim-tree-lua
             nvim-web-devicons
           ];
         };
