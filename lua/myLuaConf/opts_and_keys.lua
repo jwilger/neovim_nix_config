@@ -33,6 +33,9 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = 'split'
 
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 20
 
