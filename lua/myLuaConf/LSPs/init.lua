@@ -72,7 +72,20 @@ if nixCats('elixir') then
 end
 
 if nixCats('rust') then
-    servers.rust_analyzer = {}
+    servers.rust_analyzer = {
+        settings = {
+            ["rust-analyzer"] = {
+                procMacro = {
+                    enable = true,
+                    ignored = {
+                        leptos_macro = {
+                            "server"
+                        }
+                    }
+                }
+            }
+        }
+    }
 end
 
 -- This is this flake's version of what kickstarter has set up for mason handlers.
