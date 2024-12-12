@@ -43,6 +43,22 @@ require("lze").load({
 		end,
 	},
 	{
+		"nvim-bacon",
+		for_cat = "general.always",
+		cmd = { "BaconLoad", "BaconShow", "BaconList", "BaconPrevious", "BaconNext" },
+		keys = {
+			{
+				"!",
+				"<cmd>BaconLoad<CR><cmd>w<CR><cmd>BaconNext<CR>",
+				{ mode = "n", desc = "Navigate to next bacon location" },
+			},
+			{ ",", "<cmd>BaconList<CR>", { mode = "n", desc = "Open bacon locations list" } },
+		},
+        after = function(plugin)
+            require("bacon").setup()
+        end
+	},
+	{
 		"markdown-preview.nvim",
 		-- NOTE: for_cat is a custom handler that just sets enabled value for us,
 		-- based on result of nixCats('cat.name') and allows us to set a different default if we wish
