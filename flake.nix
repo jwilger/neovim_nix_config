@@ -245,6 +245,7 @@
             telescope-nvim
           ];
           always = with pkgs.vimPlugins; [
+            nvim-bacon
             nvim-lspconfig
             lualine-nvim
             gitsigns-nvim
