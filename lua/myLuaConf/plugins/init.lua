@@ -21,7 +21,15 @@ if nixCats("general.extra") then
 	-- didnt seem necessary.
 	vim.g.loaded_netrw = 1
 	vim.g.loaded_netrwPlugin = 1
-	require("nvim-tree").setup()
+	require("nvim-tree").setup({
+		on_attach = function(bufnr)
+			local api = require("nvim-tree.api")
+
+			-- Key mappings specific to the nvim-tree buffer
+			local opts = { buffer = bufnr, noremap = true, silent = true, desc = "Toggle Nvim Tree File Browser" }
+			vim.keymap.set("n", "-", api.tree.toggle, opts)
+		end,
+	})
 	vim.keymap.set("n", "-", "<cmd>NvimTreeToggle<CR>", { noremap = true, desc = "Toggle Nvim Tree File Browser" })
 end
 
@@ -54,9 +62,9 @@ require("lze").load({
 			},
 			{ ",", "<cmd>BaconList<CR>", { mode = "n", desc = "Open bacon locations list" } },
 		},
-        after = function(plugin)
-            require("bacon").setup()
-        end
+		after = function(plugin)
+			require("bacon").setup()
+		end,
 	},
 	{
 		"markdown-preview.nvim",
