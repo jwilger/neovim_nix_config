@@ -104,7 +104,7 @@ end
 -- servers.gopls = {},
 -- servers.pyright = {},
 -- servers.rust_analyzer = {},
--- servers.tsserver = {},
+servers.tsserver = {}
 -- servers.html = { filetypes = { 'html', 'twig', 'hbs'} },
 
 
