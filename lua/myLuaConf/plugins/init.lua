@@ -43,6 +43,52 @@ require("lze").load({
 	{ import = "myLuaConf.plugins.telescope" },
 	{ import = "myLuaConf.plugins.treesitter" },
 	{ import = "myLuaConf.plugins.completion" },
+    {
+		"CopilotChat.nvim",
+		for_cat = "general.always",
+		dependencies = {
+			{ "github/copilot.vim" }, -- Ensure Copilot is installed
+			{ "nvim-lua/plenary.nvim" },
+		},
+		build = "make tiktoken", -- Build tiktoken if you're on Linux/MacOS
+		cmd = {
+			"CopilotChat",
+			"CopilotChatOpen",
+			"CopilotChatClose",
+			"CopilotChatToggle",
+			"CopilotChatModels",
+			"CopilotChatAgents",
+		},
+		keys = {
+			{ "<leader>cc", ":CopilotChat<CR>", { noremap = true, silent = true, desc = "Open Copilot Chat" } },
+			{ "<leader>co", ":CopilotChatOpen<CR>", { noremap = true, silent = true, desc = "Open Chat Window" } },
+			{ "<leader>cq", ":CopilotChatClose<CR>", { noremap = true, silent = true, desc = "Close Chat Window" } },
+			{ "<leader>ct", ":CopilotChatToggle<CR>", { noremap = true, silent = true, desc = "Toggle Chat Window" } },
+		},
+		after = function(plugin)
+			require("CopilotChat").setup({
+				system_prompt = "/COPILOT_INSTRUCTIONS",
+				model = "gpt-4o", -- Default AI model
+				agent = "copilot", -- Default agent
+				window = {
+					layout = "vertical", -- Default layout
+					width = 0.5,
+					height = 0.5,
+					border = "rounded",
+				},
+				mappings = {
+					close = {
+						normal = "q",
+						insert = "<C-c>",
+					},
+					submit_prompt = {
+						normal = "<CR>",
+						insert = "<C-s>",
+					},
+				},
+			})
+		end,
+	},
 	{
 		"lazydev.nvim",
 		for_cat = "neonixdev",

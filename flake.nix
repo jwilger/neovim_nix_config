@@ -113,6 +113,7 @@
           universal-ctags
           ripgrep
           fd
+          nodejs
         ];
         # these names are arbitrary.
         lint = with pkgs; [
@@ -227,6 +228,9 @@
             cmp-nvim-lsp-signature-help
             cmp-cmdline-history
             lspkind-nvim
+            copilot-lua
+            copilot-cmp
+            copilot-lualine
           ];
           treesitter = with pkgs.vimPlugins; [
             nvim-treesitter-textobjects
@@ -253,6 +257,7 @@
             vim-fugitive
             vim-rhubarb
             nvim-surround
+            CopilotChat-nvim
           ];
           extra = with pkgs.vimPlugins; [
             fidget-nvim
