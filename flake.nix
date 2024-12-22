@@ -228,9 +228,6 @@
             cmp-nvim-lsp-signature-help
             cmp-cmdline-history
             lspkind-nvim
-            copilot-lua
-            copilot-cmp
-            copilot-lualine
           ];
           treesitter = with pkgs.vimPlugins; [
             nvim-treesitter-textobjects
@@ -257,6 +254,7 @@
             vim-fugitive
             vim-rhubarb
             nvim-surround
+            copilot-lua
             CopilotChat-nvim
           ];
           extra = with pkgs.vimPlugins; [

@@ -22,14 +22,14 @@ if nixCats("general.extra") then
 	vim.g.loaded_netrw = 1
 	vim.g.loaded_netrwPlugin = 1
 	require("nvim-tree").setup({
-        update_focused_file = {
-            enable = true,
-            update_cwd = false
-        },
+		update_focused_file = {
+			enable = true,
+			update_cwd = false,
+		},
 		on_attach = function(bufnr)
 			local api = require("nvim-tree.api")
 
-            api.config.mappings.default_on_attach(bufnr)
+			api.config.mappings.default_on_attach(bufnr)
 
 			-- Key mappings specific to the nvim-tree buffer
 			local opts = { buffer = bufnr, noremap = true, silent = true, desc = "Toggle Nvim Tree File Browser" }
@@ -43,13 +43,9 @@ require("lze").load({
 	{ import = "myLuaConf.plugins.telescope" },
 	{ import = "myLuaConf.plugins.treesitter" },
 	{ import = "myLuaConf.plugins.completion" },
-    {
+	{
 		"CopilotChat.nvim",
 		for_cat = "general.always",
-		dependencies = {
-			{ "github/copilot.vim" }, -- Ensure Copilot is installed
-			{ "nvim-lua/plenary.nvim" },
-		},
 		build = "make tiktoken", -- Build tiktoken if you're on Linux/MacOS
 		cmd = {
 			"CopilotChat",
@@ -86,6 +82,56 @@ require("lze").load({
 						insert = "<C-s>",
 					},
 				},
+			})
+		end,
+	},
+	{
+		"copilot.lua",
+		for_cat = "general.always",
+		after = function(plugin)
+			require("copilot").setup({
+				panel = {
+					enabled = true,
+					auto_refresh = true,
+					keymap = {
+						jump_prev = "[[",
+						jump_next = "]]",
+						accept = "<CR>",
+						refresh = "gr",
+						open = "<M-CR>",
+					},
+					layout = {
+						position = "bottom", -- | top | left | right | horizontal | vertical
+						ratio = 0.4,
+					},
+				},
+				suggestion = {
+					enabled = true,
+					auto_trigger = true,
+					hide_during_completion = true,
+					debounce = 75,
+					keymap = {
+						accept = "<C-i>",
+						accept_word = "<C-w>",
+						accept_line = "<C-l>",
+						next = "<M-]>",
+						prev = "<M-[>",
+						dismiss = "<C-]>",
+					},
+				},
+				filetypes = {
+					yaml = false,
+					markdown = false,
+					help = false,
+					gitcommit = false,
+					gitrebase = false,
+					hgcommit = false,
+					svn = false,
+					cvs = false,
+					["."] = false,
+				},
+				copilot_node_command = "node", -- Node.js version must be > 18.x
+				server_opts_overrides = {},
 			})
 		end,
 	},

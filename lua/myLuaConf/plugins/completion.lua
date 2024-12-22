@@ -7,29 +7,6 @@ local load_w_after_plugin = require("nixCatsUtils.lzUtils").make_load_with_after
 
 return {
 	{
-		"copilot.lua",
-		for_cat = "general.cmp",
-		on_plugin = { "nvim-cmp" }, -- Ensure it's loaded with nvim-cmp
-		load = load_w_after_plugin, -- Use the same loading strategy as other plugins
-		after = function(plugin)
-			-- Copilot-Lua setup
-			require("copilot").setup({
-				-- Optional configuration; modify as needed
-				panel = { enabled = false },
-				suggestion = { enabled = false },
-				filetypes = {
-					["*"] = true, -- Enable Copilot suggestions for all filetypes
-				},
-			})
-		end,
-	},
-    {
-		"copilot-cmp",
-		for_cat = "general.cmp",
-		on_plugin = { "nvim-cmp" }, -- Ensure it's loaded with nvim-cmp
-		load = load_w_after_plugin,
-	},
-	{
 		"cmp-buffer",
 		for_cat = "general.cmp",
 		on_plugin = { "nvim-cmp" },
@@ -176,7 +153,6 @@ return {
 					end, { "i", "s" }),
 				}),
 				sources = cmp.config.sources({
-					{ name = "copilot", priority = 120 },
 					{ name = "nvim_lsp", priority = 100 },
 					{ name = "luasnip", priority = 90 },
 					{ name = "path", priority = 80 },
